@@ -59,7 +59,7 @@ ggsave("figures/boxplot_height.png", width = 6, height = 6)
 nanobubbles <- as_tibble(bubbles)  
 
 nanobubbles %>% 
-  #filter(datetime %in% c("23/07/2013")) %>%
+  filter(species == "corn")%>%
   ggplot(aes(x = datetime, y = leaves, colour = treatment)) +
   geom_boxplot(size = 0.7) +
   scale_y_continuous(limits =c(0,10)) +
@@ -74,7 +74,7 @@ nanobubbles %>%
         panel.background = element_rect(fill = "white",
                                         colour = "black"))
 
-ggsave("figures/boxplot_leaves.png", width = 6, height = 6)
+ggsave("figures/boxplot_leaves_corn.png", width = 6, height = 6)
 
 
 
@@ -127,3 +127,5 @@ nanobubbles %>%
                                         colour = "black"))
 
 ggsave("figures/Scatter_Smooth_Cotton_Height.png", width = 6, height = 6)
+
+
