@@ -9,6 +9,45 @@ bubbles <- read_csv(("data/bubbles.csv"))            #upload data
 bubbles
 
 
+# Scatter plot: Effect of bubbles on height
+nanobubbles <- as_tibble(bubbles)  
+
+nanobubbles %>% 
+  #filter(datetime %in% c("30/07/2018")) %>%
+  ggplot(aes(x = datetime, y = height_cm, colour = treatment)) +
+  geom_point(size = 2) +
+  geom_smooth(method = "lm", colour = "treatment") +
+  scale_y_continuous(limits =c(0,110)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "Date",
+    y = "Height (cm)",
+    title = "Effect of Bubbles on Plant Height",
+    colour = "Treatment") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 45, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
+
+# Bar Chart: Effect of bubbles on height
+nanobubbles <- as_tibble(bubbles)  
+
+nanobubbles %>% 
+  #filter(datetime %in% c("30/07/2018")) %>%
+  ggplot(aes(x = datetime, y = height_cm, colour = treatment)) +
+  geom_point(size = 3) +
+  scale_y_continuous(limits =c(0,110)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "Date",
+    y = "Number of leaves",
+    title = "Effect of Bubbles on Plant Height",
+    colour = "Treatment") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 45, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
+
 #Effect of bubbles on plant height
 nanobubbles <- as_tibble(bubbles)  
   

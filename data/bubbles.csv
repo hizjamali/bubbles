@@ -1,0 +1,181 @@
+datetime,species,treatment ,pot,height_cm,leaves
+23/07/2018,corn,Tap ,1,53,6
+23/07/2018,corn,Solari ,2,48.5,6
+23/07/2018,corn,Cashido ,3,51.5,6
+23/07/2018,corn,Tap ,4,50,6
+23/07/2018,corn,Solari ,5,48.5,6
+23/07/2018,corn,Cashido ,6,45,6
+23/07/2018,corn,Tap ,7,50,6
+23/07/2018,corn,Solari ,8,47,6
+23/07/2018,corn,Cashido ,9,53,6
+23/07/2018,corn,Tap ,10,48,6
+23/07/2018,corn,Solari ,11,52.5,6
+23/07/2018,corn,Cashido ,12,53,6
+23/07/2018,corn,Tap ,13,47.5,6
+23/07/2018,corn,Solari ,14,51,6
+23/07/2018,corn,Cashido ,15,59,6
+23/07/2018,corn,Solari ,16,53.5,6
+23/07/2018,corn,Tap ,17,43,6
+23/07/2018,corn,Cashido ,18,50.5,6
+23/07/2018,corn,Solari ,19,46,6
+23/07/2018,corn,Tap ,20,50.5,6
+23/07/2018,corn,Cashido ,21,47,6
+23/07/2018,corn,Solari ,22,48,6
+23/07/2018,corn,Tap ,23,44.5,6
+23/07/2018,corn,Cashido ,24,41,6
+23/07/2018,corn,Solari ,25,60.5,6
+23/07/2018,corn,Tap ,26,48,5
+23/07/2018,corn,Cashido ,27,53,6
+23/07/2018,corn,Solari ,28,49,6
+23/07/2018,corn,Tap ,29,48,6
+23/07/2018,corn,Cashido ,30,49,6
+27/07/2018,corn,Tap ,1,75,7
+27/07/2018,corn,Solari ,2,72,7
+27/07/2018,corn,Cashido ,3,74,7
+27/07/2018,corn,Tap ,4,71,7
+27/07/2018,corn,Solari ,5,68,7
+27/07/2018,corn,Cashido ,6,66,7
+27/07/2018,corn,Tap ,7,71,7
+27/07/2018,corn,Solari ,8,66,7
+27/07/2018,corn,Cashido ,9,71,8
+27/07/2018,corn,Tap ,10,67,7
+27/07/2018,corn,Solari ,11,69,8
+27/07/2018,corn,Cashido ,12,70,8
+27/07/2018,corn,Tap ,13,69,7
+27/07/2018,corn,Solari ,14,72,7
+27/07/2018,corn,Cashido ,15,81,7
+27/07/2018,corn,Solari ,16,72,7
+27/07/2018,corn,Tap ,17,58,7
+27/07/2018,corn,Cashido ,18,69,7
+27/07/2018,corn,Solari ,19,65,7
+27/07/2018,corn,Tap ,20,72,7
+27/07/2018,corn,Cashido ,21,65,8
+27/07/2018,corn,Solari ,22,65,8
+27/07/2018,corn,Tap ,23,64,7
+27/07/2018,corn,Cashido ,24,58,7
+27/07/2018,corn,Solari ,25,79,7
+27/07/2018,corn,Tap ,26,64,7
+27/07/2018,corn,Cashido ,27,72,7
+27/07/2018,corn,Solari ,28,70,7
+27/07/2018,corn,Tap ,29,79,7
+27/07/2018,corn,Cashido ,30,68,7
+30/07/2018,corn,Tap ,1,88,8
+30/07/2018,corn,Solari ,2,84,8
+30/07/2018,corn,Cashido ,3,92,8
+30/07/2018,corn,Tap ,4,89,8
+30/07/2018,corn,Solari ,5,86,9
+30/07/2018,corn,Cashido ,6,82,8
+30/07/2018,corn,Tap ,7,88,8
+30/07/2018,corn,Solari ,8,83,8
+30/07/2018,corn,Cashido ,9,91,8
+30/07/2018,corn,Tap ,10,86,8
+30/07/2018,corn,Solari ,11,88,9
+30/07/2018,corn,Cashido ,12,93,8
+30/07/2018,corn,Tap ,13,82,8
+30/07/2018,corn,Solari ,14,92,8
+30/07/2018,corn,Cashido ,15,101,9
+30/07/2018,corn,Solari ,16,94,9
+30/07/2018,corn,Tap ,17,77,9
+30/07/2018,corn,Cashido ,18,76,7
+30/07/2018,corn,Solari ,19,85,8
+30/07/2018,corn,Tap ,20,92,8
+30/07/2018,corn,Cashido ,21,80,9
+30/07/2018,corn,Solari ,22,83,8
+30/07/2018,corn,Tap ,23,84,9
+30/07/2018,corn,Cashido ,24,75,8
+30/07/2018,corn,Solari ,25,93,8
+30/07/2018,corn,Tap ,26,79,7
+30/07/2018,corn,Cashido ,27,88,8
+30/07/2018,corn,Solari ,28,87,8
+30/07/2018,corn,Tap ,29,91,8
+30/07/2018,corn,Cashido ,30,78,8
+23/07/2018,cotton,Tap,31,10.5,4
+23/07/2018,cotton,Solari,32,11,4
+23/07/2018,cotton,Cashido,33,9,4
+23/07/2018,cotton,Tap,34,10,4
+23/07/2018,cotton,Solari,35,10,4
+23/07/2018,cotton,Cashido,36,9,4
+23/07/2018,cotton,Tap,37,9,5
+23/07/2018,cotton,Solari,38,10,4
+23/07/2018,cotton,Cashido,39,12,4
+23/07/2018,cotton,Tap,40,11,4
+23/07/2018,cotton,Solari,41,10,4
+23/07/2018,cotton,Cashido,42,10,5
+23/07/2018,cotton,Tap,43,10,4
+23/07/2018,cotton,Solari,44,10,4
+23/07/2018,cotton,Cashido,45,8,5
+23/07/2018,cotton,Solari,46,11,4
+23/07/2018,cotton,Tap,47,11,4
+23/07/2018,cotton,Cashido,48,11,4
+23/07/2018,cotton,Solari,49,11,5
+23/07/2018,cotton,Tap,50,10,5
+23/07/2018,cotton,Cashido,51,11,4
+23/07/2018,cotton,Solari,52,11,4
+23/07/2018,cotton,Tap,53,10,4
+23/07/2018,cotton,Cashido,54,10,4
+23/07/2018,cotton,Solari,55,12,5
+23/07/2018,cotton,Tap,56,10,4
+23/07/2018,cotton,Cashido,57,11,4
+23/07/2018,cotton,Solari,58,10,4
+23/07/2018,cotton,Tap,59,10,4
+23/07/2018,cotton,Cashido,60,4,3
+27/07/2018,cotton,Tap,31,12,6
+27/07/2018,cotton,Solari,32,12,6
+27/07/2018,cotton,Cashido,33,12,6
+27/07/2018,cotton,Tap,34,12,6
+27/07/2018,cotton,Solari,35,12,6
+27/07/2018,cotton,Cashido,36,13,6
+27/07/2018,cotton,Tap,37,11,6
+27/07/2018,cotton,Solari,38,10,6
+27/07/2018,cotton,Cashido,39,12,6
+27/07/2018,cotton,Tap,40,13,6
+27/07/2018,cotton,Solari,41,13,6
+27/07/2018,cotton,Cashido,42,11,6
+27/07/2018,cotton,Tap,43,12,6
+27/07/2018,cotton,Solari,44,11,6
+27/07/2018,cotton,Cashido,45,11,6
+27/07/2018,cotton,Solari,46,10,6
+27/07/2018,cotton,Tap,47,12,6
+27/07/2018,cotton,Cashido,48,13,6
+27/07/2018,cotton,Solari,49,13,6
+27/07/2018,cotton,Tap,50,13,6
+27/07/2018,cotton,Cashido,51,12,6
+27/07/2018,cotton,Solari,52,12,6
+27/07/2018,cotton,Tap,53,13,6
+27/07/2018,cotton,Cashido,54,12,6
+27/07/2018,cotton,Solari,55,12,6
+27/07/2018,cotton,Tap,56,13,6
+27/07/2018,cotton,Cashido,57,12,5
+27/07/2018,cotton,Solari,58,13,6
+27/07/2018,cotton,Tap,59,12,6
+27/07/2018,cotton,Cashido,60,5,4
+30/07/2018,cotton,Tap,31,14,6
+30/07/2018,cotton,Solari,32,13,7
+30/07/2018,cotton,Cashido,33,14,6
+30/07/2018,cotton,Tap,34,14,7
+30/07/2018,cotton,Solari,35,15,7
+30/07/2018,cotton,Cashido,36,15,7
+30/07/2018,cotton,Tap,37,14,6
+30/07/2018,cotton,Solari,38,13,7
+30/07/2018,cotton,Cashido,39,14,6
+30/07/2018,cotton,Tap,40,15,6
+30/07/2018,cotton,Solari,41,15,6
+30/07/2018,cotton,Cashido,42,14,6
+30/07/2018,cotton,Tap,43,14,6
+30/07/2018,cotton,Solari,44,13,6
+30/07/2018,cotton,Cashido,45,13,6
+30/07/2018,cotton,Solari,46,11,7
+30/07/2018,cotton,Tap,47,14,6
+30/07/2018,cotton,Cashido,48,15,6
+30/07/2018,cotton,Solari,49,14,6
+30/07/2018,cotton,Tap,50,15,7
+30/07/2018,cotton,Cashido,51,14,7
+30/07/2018,cotton,Solari,52,13,6
+30/07/2018,cotton,Tap,53,14,6
+30/07/2018,cotton,Cashido,54,14,7
+30/07/2018,cotton,Solari,55,14,6
+30/07/2018,cotton,Tap,56,15,7
+30/07/2018,cotton,Cashido,57,14,6
+30/07/2018,cotton,Solari,58,15,6
+30/07/2018,cotton,Tap,59,14,6
+30/07/2018,cotton,Cashido,60,7,5
