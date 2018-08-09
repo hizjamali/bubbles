@@ -37,8 +37,65 @@ The results of this experiment will broadly apply to all irrigated crops, except
 ### Experimental layout
 
 Trial was set up on two glass house benches with one bench assigned to each corn and cotton. Each bench consisted of thirty pots of either corn or cotton. All pots were planted ith three seeds of respective species on July 03, 2018. Number of plants was thinned dwon to one plant per pot only once the plants were established. 
-```{r cars}
-summary(cars)
+
+
+### Results
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+
+library(tidyverse)
+library(ggplot2)
+
+bubbles <- read_csv(("C:/Users/jam19e/dataschool/bubbles/data/bubbles.csv"))
+nanobubbles <- as_tibble(bubbles)
+
+nanobubbles %>% 
+  #filter(datetime %in% c("30/07/2018")) %>%
+  ggplot(aes(x = as.Date(datetime), y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
+  #geom_point(size = 2) +
+  geom_smooth(method = 'lm') + #to see if slope differs
+  scale_y_continuous(limits =c(0,110)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "Date",
+    y = "Height (cm)",
+    title = "Effect of Bubbles on Plant Height",
+    colour = "Treatment") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 90, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
+
+```
+ 
+ Plant growth is currently being measured and results will be updated as they arrive.
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+#Effect of bubbles on plant height
+nanobubbles <- as_tibble(bubbles)  
+  
+nanobubbles %>% 
+  #filter(datetime %in% c("23/07/2013")) %>%
+  ggplot(aes(x = datetime, y = height_cm, colour = treatment)) +
+  geom_boxplot(size = 0.5) +
+  geom_smooth(method = 'lm') +
+  scale_y_continuous(limits =c(0,110)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "Date",
+    y = "Height (cm)",
+    title = "Effect of Bubbles on Plant Height",
+    colour = "Treatment") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 45, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
+
+nanobubbles %>%
+  group_by(datetime, species, treatment)
+  summary(nanobubbles)
+```
+
+
 ```
 
 ## Including Plots
@@ -50,3 +107,7 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+
+
+```
