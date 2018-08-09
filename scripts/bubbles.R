@@ -8,15 +8,14 @@ bubbles <- read_csv(("data/bubbles.csv"))            #upload data
 
 bubbles
 
-
 # Scatter plot: Effect of bubbles on height
 nanobubbles <- as_tibble(bubbles)  
 
 nanobubbles %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
   ggplot(aes(x = as.Date(datetime), y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
-  #geom_point(size = 2) +
-  geom_smooth(method = 'lm') + #to see if slope differs
+  geom_jitter(size = 5, alpha = 0.5) +
+  #geom_smooth(method = 'lm') + #to see if slope differs
   scale_y_continuous(limits =c(0,110)) +
   facet_wrap(~species) +
   labs(                                      #labels 
@@ -37,7 +36,7 @@ ggsave("figures/Smooth_height.png", width = 6, height = 6)
 nanobubbles <- as_tibble(bubbles)  
   
 nanobubbles %>% 
-  #filter(datetime %in% c("23/07/2013")) %>%
+  #filter(datetime %in% c("30/07/2013")) %>%
   ggplot(aes(x = datetime, y = height_cm, colour = treatment)) +
   geom_boxplot(size = 0.5) +
   geom_smooth(method = 'lm') +
@@ -86,8 +85,8 @@ nanobubbles <- as_tibble(bubbles)
 nanobubbles %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
   ggplot(aes(x = leaves, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
-  geom_point(size = 2) +
-  geom_smooth(method = 'lm') + #to see if slope differs
+  geom_jitter(size = 3, alpha = 0.5) +
+  #geom_smooth(method = 'lm') + #to see if slope differs
   scale_y_continuous(limits =c(0,110)) +
   facet_wrap(~species) +
   labs(                                      #labels 
@@ -109,13 +108,14 @@ nanobubbles <- as_tibble(bubbles)
 summary(nanobubbles)
 
 nanobubbles %>% 
-  filter(species == "cotton")%>%
-  group_by(datetime) %>% 
+  filter(species == "corn")%>%
+  #group_by() %>% 
   ggplot(aes(x = as.Date(datetime), y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
   geom_point(size = 2) +
-  geom_smooth(method = 'lm') + #to see if slope differs
-  scale_y_continuous(limits =c(0,15)) +
-  #facet_wrap(~species) +
+  geom_smooth(method = 'loess') + #to see if slope differs
+  ylim(40,90)+
+  #scale_y_continuous(limits =c(40,100)) +
+  facet_wrap(~species) +
   labs(                                      #labels 
     x= "Date",
     y = "Height (cm)",
@@ -129,4 +129,26 @@ nanobubbles %>%
 ggsave("figures/Scatter_Smooth_Cotton_Height.png", width = 6, height = 6)
 
 
+
+bubbles
+#try group_by function
+nanobubbles <- as_tibble(bubbles)  
+
+nanobubbles %>% 
+  #filter(datetime %in% c("30/07/2018")) %>%
+  ggplot(aes(x = datetime, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
+  geom_col() +
+  
+  geom_smooth(method = 'lm') + #to see if slope differs
+  scale_y_continuous(limits =c(0,110)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "Date",
+    y = "Height (cm)",
+    title = "Effect of Bubbles on Plant Height",
+    colour = "Treatment") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 90, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
 
