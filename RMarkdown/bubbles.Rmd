@@ -1,0 +1,52 @@
+---
+title: "Effect of nano bubbles on growth of corn and cotton plants in a glass house trial"
+author: "Hiz Jamali and Darin Hodgson - CSIRO Agriculture and Food"
+date: "9 August 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Introduction
+
+Low oxygen concentrations in the root zone associated with irrigation (Hodgson and Chan, 1982; Jayawardane et al., 1987), salinity (Bathke et al., 1992), sodicity (Barrett-Lennard, 2003) and compaction (Agnew and Carrow, 1985) have been recognized as major bottlenecks for achievement of agricultural yield potential. The problem of hypoxia and anoxia is most severe in irrigated broadacre crops which are mainly grown on heavy clayey soils with poor drainage resulting in water logged conditions following irrigations and/or heavy rainfall events. Cotton is one of the most affected crops by water logging in terms of yield (Bange et al., 2004; Hodgson and Chan, 1982; Najeeb et al., 2016). 
+
+The low oxygen soil conditions can also result in large emissions of nitrous oxide (N2O) and methane (CH4) which are powerful greenhouse gases (GHG) with global warming potential ~300 and 25 times that of carbon dioxide (CO2), respectively. In agricultural soils, N2O emissions are mainly derived from the aerobic process of nitrification and anaerobic process of denitrification. Nitrification is the biological oxidation of ammonium (NH4+) to nitrate (NO3-) and denitrification is the reduction of NO3- to N2, both resulting in emissions of N2O as intermediate. The emissions of N2 through denitrification represent significant loss of mineral N thus reducing fertilizer use efficiency. In irrigated agricultural systems, most of N2O and N2 emissions occur in short episodes following irrigation or rainfall events through denitrification (Jamali et al., 2015; Scheer et al., 2008). The denitrification process, although affected by several factors such as pH and organic carbon, is mainly driven by low oxygen soil environment in the presence of mineral N substrate. Methane emissions in agricultural systems mainly occur in paddy rice fields.
+
+Use of aerated water in subsurface drip irrigations systems, termed as “aerated irrigation” or “oxygation”, has been used to increase the oxygen levels in agricultural soils (Bhattarai et al., 2005). The oxygation method involves mixing air at a certain percentage of volume of irrigation water using air injectors (e.g. Mazzei model 287) exclusively in a subsurface drip irrigation systems. In a field study at Emerald, Queensland, Australia, oxygation resulted in significant gains in yield and water use efficiency in a subsurface drip irrigation system (Pendergast et al., 2013). In a recent study (Hou et al., 2016), oxygation did not mitigate soil N2O emissions although it increased the tomato yield grown in a greenhouse. We could not find any other study on effect of oxygation on N2O emissions. The use of aerated irrigation, however, may not be suitable for flood irrigation layouts which is the most common practice in irrigated broadcare crops in Australia because the macro air bubbles are not stable. Even within a subsurface drip system, macro-bubbles created by aeration would have a short life and therefore limited effect. 
+
+An alternate method of increasing the soil oxygen levels is using Nano- and Micro-bubbles (NMB) which are 10-4 to10-6 m in diameter and more stable than macro-bubbles. NMB are highly soluble in water owing to high internal pressure of the bubbles (Takahashi et al., 2007) and have been shown to be stable in water for up to 70 days (Ushikubo et al., 2010). Recent research in Japan has shown the potential of using NMB-water in agriculture. For example, Brassica campestris plants cultured hydroponically in NMB-water resulted in significantly higher plant biomass compared with plants cultured in normal water (Ebina et al. 2013). In another study, lettuce plants treated with NMB had significantly higher biomass compared with those treated with macro-bubbles in a hydroponic set up (Park and Kurata, 2009). It was observed that because of their negative charge NMB adhered to the roots thus directly providing oxygen to roots (Park and Kurata, 2009). The authors suggested that NMB can attract positively charged ions that are dissolved in the nutrient solution which may further stimulate plant growth (Park and Kurata, 2009), however, research is needed to confirm this theory. 
+
+The effect of NMB on GHG emissions has only been studied in a rice paddy in Japan. In this study, CH4 emissions from a flooded rice paddy were decreased by 21% by using NMB-water compared with normal water, however, no effect was observed on rice plants (Minamikawa et al. 2015). In contrast with paddy rice soils where N2O emissions are less significant because of anaerobic soil resulting in complete denitrification of NO3- to N2, larger emissions of N2O occur in non-rice irrigated crops because of incomplete denitrification for a significant period of time. We hypothesize that NMB has the potential to mitigate N2O and N2 losses, by slowing down the denitrification process, in high input irrigated systems such as cotton and increase nitrogen use efficiency by allowing plants more time to utilize mineral N. We also hypothesize that NMB would be more beneficial in sodic soils which tend become anoxic quickly because of poor soil structure. 
+
+## Objectives
+
+Objectives of this preliminary study are to study the effect of nano bubbles on: 
+1) Germination of three monocot and three dicot plant species
+2) Growth of corn and cotton plants in a glass house trial.
+3) Photosynthetic rates of corn and cotton plants
+4) Soil mineral N 
+
+The results of this experiment will broadly apply to all irrigated crops, except paddy rice, in terms of the potential impact on plant growth sol biogeochemical properties.
+
+## Materials and methods
+
+### Experimental layout
+
+Trial was set up on two glass house benches with one bench assigned to each corn and cotton. Each bench consisted of thirty pots of either corn or cotton. All pots were planted ith three seeds of respective species on July 03, 2018. Number of plants was thinned dwon to one plant per pot only once the plants were established. 
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

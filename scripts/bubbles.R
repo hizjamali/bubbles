@@ -93,7 +93,7 @@ nanobubbles %>%
   labs(                                      #labels 
     x= "Number of leaves",
     y = "Height (cm)",
-    title = "Effect of Bubbles on Plant Height",
+    title = "Relationship between Number of leaves and Plant Height",
     colour = "Treatment") +
   theme(panel.grid = element_blank(), #remove panel lines
         axis.text.x = element_text(angle =, size=10),
@@ -127,5 +127,6 @@ nanobubbles %>%
                                         colour = "black"))
 
 ggsave("figures/Scatter_Smooth_Cotton_Height.png", width = 6, height = 6)
+
 
 
