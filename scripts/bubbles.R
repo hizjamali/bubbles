@@ -19,7 +19,7 @@ bubbles1 <- as.tibble(bubbles) %>%
 bubbles1 %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
   ggplot(aes(x = datetime, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
-  geom_jitter(size = 4, alpha = 0.5) +
+  geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
   #geom_smooth(method = 'lm') + #to see if slope differs
   scale_y_continuous(limits =c(0,110)) +
   facet_wrap(~species) +
@@ -62,10 +62,12 @@ bubbles1 %>%
 
 bubbles1 %>% 
   #filter(datetime %in% c("30/07/2013")) %>%
+  filter((datetime == "30/07/2018")) %>%
+  filter(species=="cotton") %>% 
   ggplot(aes(x = treatment, y = height_cm, colour = datetime)) +
   geom_boxplot(size = 0.5) +
   geom_smooth(method = 'lm') +
-  scale_y_continuous(limits =c(0,110)) +
+  scale_y_continuous(limits =c(0,20)) +
   facet_wrap(~species) +
   labs(                                      #labels 
     x= "Date",
@@ -80,7 +82,7 @@ bubbles1 %>%
 ggsave("figures/boxplot_height.png", width = 6, height = 6)
   
 #Boxplot# Effect of bubbles on number of leaves
-nanobubbles <- as_tibble(bubbles)  
+ 
 
 bubbles1 %>% 
   filter(species == "corn")%>%
@@ -105,7 +107,7 @@ ggsave("figures/boxplot_leaves_corn.png", width = 6, height = 6)
 #Scatter height vs leaves
 
 # Scatter plot: Effect of bubbles on height
-nanobubbles <- as_tibble(bubbles)  
+  
 
 bubbles1 %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
@@ -154,18 +156,17 @@ ggsave("figures/Scatter_Smooth_Cotton_Height.png", width = 6, height = 6)
 
 
 
-bubbles
-#try group_by function
-nanobubbles <- as_tibble(bubbles)  
+#Show average and standard errors in bars
 
 bubbles1 %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
-  ggplot(aes(x = datetime, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
+  filter(species=="corn)") %>% 
+  ggplot(aes(x = treatment, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
   geom_col() +
   
   geom_smooth(method = 'lm') + #to see if slope differs
   scale_y_continuous(limits =c(0,110)) +
-  facet_wrap(~species) +
+  #facet_wrap(~species) +
   labs(                                      #labels 
     x= "Date",
     y = "Height (cm)",
@@ -179,4 +180,4 @@ bubbles1 %>%
 
 
 
-bubbles1
+
