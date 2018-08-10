@@ -8,13 +8,18 @@ bubbles <- read_csv(("data/bubbles.csv"))            #upload data
 
 bubbles
 
-# Scatter plot: Effect of bubbles on height
-nanobubbles <- as_tibble(bubbles)  
+#Create unique ID by uniting two columns but keep original columns
+bubbles1 <- as.tibble(bubbles) %>% 
+  unite(date_pot, datetime, pot, sep = "_", remove = FALSE)
 
-nanobubbles %>% 
+
+
+# Scatter plot: Effect of bubbles on height
+
+bubbles1 %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
-  ggplot(aes(x = as.Date(datetime), y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
-  geom_jitter(size = 5, alpha = 0.5) +
+  ggplot(aes(x = datetime, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
+  geom_jitter(size = 4, alpha = 0.5) +
   #geom_smooth(method = 'lm') + #to see if slope differs
   scale_y_continuous(limits =c(0,110)) +
   facet_wrap(~species) +
@@ -31,13 +36,33 @@ nanobubbles %>%
 ggsave("figures/Smooth_height.png", width = 6, height = 6)
 
 
+# Treatment vs height
+#geom_smooth can't run as x-axis is chr
+
+bubbles1 %>% 
+  #filter(datetime %in% c("30/07/2018")) %>%
+  #filter((datetime == "30/07/2018")) %>% 
+  filter(species=="corn") %>% 
+  ggplot(aes(x = treatment, y = height_cm, colour = datetime)) +  
+  geom_jitter(size = 4, alpha = 0.5) +
+  #geom_smooth(method = 'lm') + #to see if slope differs
+  scale_y_continuous(limits =c(0,110)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "Date",
+    y = "Height (cm)",
+    title = "Effect of Bubbles on Plant Height",
+    colour = "Date") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 90, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
 
 #Effect of bubbles on plant height
-nanobubbles <- as_tibble(bubbles)  
-  
-nanobubbles %>% 
+
+bubbles1 %>% 
   #filter(datetime %in% c("30/07/2013")) %>%
-  ggplot(aes(x = datetime, y = height_cm, colour = treatment)) +
+  ggplot(aes(x = treatment, y = height_cm, colour = datetime)) +
   geom_boxplot(size = 0.5) +
   geom_smooth(method = 'lm') +
   scale_y_continuous(limits =c(0,110)) +
@@ -48,7 +73,7 @@ nanobubbles %>%
     title = "Effect of Bubbles on Plant Height",
     colour = "Treatment") +
   theme(panel.grid = element_blank(), #remove panel lines
-        axis.text.x = element_text(angle = 45, size=10),
+        axis.text.x = element_text(angle = 0, size=10),
         panel.background = element_rect(fill = "white",
                                         colour = "black"))
 
@@ -57,7 +82,7 @@ ggsave("figures/boxplot_height.png", width = 6, height = 6)
 #Boxplot# Effect of bubbles on number of leaves
 nanobubbles <- as_tibble(bubbles)  
 
-nanobubbles %>% 
+bubbles1 %>% 
   filter(species == "corn")%>%
   ggplot(aes(x = datetime, y = leaves, colour = treatment)) +
   geom_boxplot(size = 0.7) +
@@ -82,7 +107,7 @@ ggsave("figures/boxplot_leaves_corn.png", width = 6, height = 6)
 # Scatter plot: Effect of bubbles on height
 nanobubbles <- as_tibble(bubbles)  
 
-nanobubbles %>% 
+bubbles1 %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
   ggplot(aes(x = leaves, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
   geom_jitter(size = 3, alpha = 0.5) +
@@ -103,11 +128,10 @@ ggsave("figures/Scatter_Smooth_leavesVSheight.png", width = 6, height = 6)
 
 
 # Calculate means Scatter plot: Effect of bubbles on height
-nanobubbles <- as_tibble(bubbles)  
 
 summary(nanobubbles)
 
-nanobubbles %>% 
+bubbles1 %>% 
   filter(species == "corn")%>%
   #group_by() %>% 
   ggplot(aes(x = as.Date(datetime), y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
@@ -134,7 +158,7 @@ bubbles
 #try group_by function
 nanobubbles <- as_tibble(bubbles)  
 
-nanobubbles %>% 
+bubbles1 %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
   ggplot(aes(x = datetime, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
   geom_col() +
@@ -152,3 +176,7 @@ nanobubbles %>%
         panel.background = element_rect(fill = "white",
                                         colour = "black"))
 
+
+
+
+bubbles1

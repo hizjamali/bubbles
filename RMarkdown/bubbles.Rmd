@@ -1,13 +1,25 @@
 ---
 title: "Effect of nano bubbles on growth of corn and cotton plants in a glass house trial"
-author: "Hiz Jamali and Darin Hodgson - CSIRO Agriculture and Food"
-date: "9 August 2018"
+author: "Hiz Jamali and Darin Hodgson"
+date: "CSIRO Agriculture and Food, Narrabri, NSW, Australia"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE)
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 ```
+
+
+## Abstract
+
+Lets do some work first
+
+
+
+
+### Keywords
+Nanobubbles, microbubbles, irrigation, cotton, corn, 
 
 
 ## Introduction
@@ -30,7 +42,7 @@ Objectives of this preliminary study are to study the effect of nano bubbles on:
 3) Photosynthetic rates of corn and cotton plants
 4) Soil mineral N 
 
-The results of this experiment will broadly apply to all irrigated crops, except paddy rice, in terms of the potential impact on plant growth sol biogeochemical properties.
+The results of this experiment will broadly apply to all irrigated crops, except paddy rice, in terms of the potential impact on plant growth and sol biogeochemical properties.
 
 ## Materials and methods
 
@@ -39,43 +51,196 @@ The results of this experiment will broadly apply to all irrigated crops, except
 Trial was set up on two glass house benches with one bench assigned to each corn and cotton. Each bench consisted of thirty pots of either corn or cotton. All pots were planted ith three seeds of respective species on July 03, 2018. Number of plants was thinned dwon to one plant per pot only once the plants were established. 
 
 
-### Results
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+### Plant growth measurements
+
+Height, number of nodes (cotton only) and number of leaves (corn only) was measured weekly. 
+
+
+### Statistical analyses
+Statistical analyses was condcuted using R (dreaming) and Python (day dreaming)
+
+
+## Results and Discussion
+Results will be awesome you just have to wait for them. 
+
+```{r echo=FALSE, results= FALSE, warning=FALSE, message=FALSE}
 
 library(tidyverse)
 library(ggplot2)
 
-bubbles <- read_csv(("C:/Users/jam19e/dataschool/bubbles/data/bubbles.csv"))
-nanobubbles <- as_tibble(bubbles)
 
-nanobubbles %>% 
+bubbles <- read_csv(("data/bubbles.csv"))
+bubbles
+bubbles1 <- as.tibble(bubbles) %>% 
+  unite(date_pot, datetime, pot, sep = "_", remove = FALSE)
+
+# Scatter plot: Effect of bubbles on height
+
+bubbles1 %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
-  ggplot(aes(x = as.Date(datetime), y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
-  #geom_point(size = 2) +
-  geom_smooth(method = 'lm') + #to see if slope differs
-  scale_y_continuous(limits =c(0,110)) +
+  filter(species=="corn") %>% 
+  ggplot(aes(x = datetime, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
+  geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
+  #geom_smooth(method = 'lm') + #to see if slope differs
+  scale_y_continuous(limits =c(25,110)) +
   facet_wrap(~species) +
   labs(                                      #labels 
-    x= "Date",
+    x= "",
     y = "Height (cm)",
     title = "Effect of Bubbles on Plant Height",
     colour = "Treatment") +
   theme(panel.grid = element_blank(), #remove panel lines
-        axis.text.x = element_text(angle = 90, size=10),
+        axis.text.x = element_text(angle = 0, size=10),
         panel.background = element_rect(fill = "white",
                                         colour = "black"))
+
+
 
 ```
  
  Plant growth is currently being measured and results will be updated as they arrive.
 
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+```{r eval=FALSE, echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
 #Effect of bubbles on plant height
-nanobubbles <- as_tibble(bubbles)  
-  
-nanobubbles %>% 
-  #filter(datetime %in% c("23/07/2013")) %>%
-  ggplot(aes(x = datetime, y = height_cm, colour = treatment)) +
+bubbles1 %>% 
+  #filter(datetime %in% c("30/07/2018")) %>%
+  filter(species=="cotton") %>% 
+  ggplot(aes(x = datetime, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
+  geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
+  #geom_smooth(method = 'lm') + #to see if slope differs
+  scale_y_continuous(limits =c(0,20)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "",
+    y = "Height (cm)",
+    title = "Effect of Bubbles on Plant Height",
+    colour = "Treatment") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 0, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
+
+```
+
+```{r echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+# Treatment vs height
+bubbles1 %>% 
+  #filter(datetime %in% c("30/07/2018")) %>%
+  filter(species=="cotton") %>% 
+  ggplot(aes(x = treatment, y = height_cm, colour = datetime)) + # 
+  geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
+  #geom_smooth(method = 'lm') + #to see if slope differs
+  scale_y_continuous(limits =c(0,20)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "",
+    y = "Height (cm)",
+    title = "Effect of Bubbles on Plant Height",
+    colour = "Treatment") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 0, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
+```
+
+
+More figures 
+
+
+```{r echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+# Height vs number of leaves
+
+bubbles1 %>% 
+  #filter(datetime %in% c("30/07/2018")) %>%
+  filter(species=="corn") %>% 
+  ggplot(aes(x = leaves, y = height_cm, colour= treatment)) + # 
+  geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
+  geom_smooth(method = 'lm') + #to see if slope differs
+  scale_y_continuous(limits =c(0,110)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "Number of leaves",
+    y = "Height (cm)",
+    title = "Number of leaves vs plant height",
+    colour = "Treatment") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 0, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
+
+```
+
+
+
+
+
+
+```{r eval= FALSE, echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+# Treatment vs height
+bubbles1 %>% 
+  filter(datetime==("30/07/2018")) %>%
+  filter(species=="corn") %>% 
+  ggplot(aes(x = treatment, y = height_cm, colour = datetime)) + # 
+  geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
+  #geom_smooth(method = 'lm') + #to see if slope differs
+  scale_y_continuous(limits =c(50,110)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "",
+    y = "Height (cm)",
+    title = "Effect of Bubbles on Plant Height",
+    colour = "Treatment") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 0, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
+
+```
+
+
+
+
+
+
+```{r eval= FALSE, echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+
+# Treatment vs height cotton for last date only
+bubbles1 %>% 
+  filter(datetime==("30/07/2018")) %>%
+  filter(species=="cotton") %>% 
+  ggplot(aes(x = treatment, y = height_cm, colour = datetime)) + # 
+  geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
+  #geom_smooth(method = 'lm') + #to see if slope differs
+  scale_y_continuous(limits =c(0,20)) +
+  facet_wrap(~species) +
+  labs(                                      #labels 
+    x= "",
+    y = "Height (cm)",
+    title = "Effect of Bubbles on Plant Height",
+    colour = "Treatment") +
+  theme(panel.grid = element_blank(), #remove panel lines
+        axis.text.x = element_text(angle = 0, size=10),
+        panel.background = element_rect(fill = "white",
+                                        colour = "black"))
+
+```
+
+
+Use boxplots 
+
+
+
+
+
+
+```{r eval= TRUE, echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+
+#Create a boxplot
+bubbles1 %>% 
+  #filter(datetime %in% c("30/07/2013")) %>%
+  filter((datetime == "30/07/2018")) %>%
+  #filter(species=="cotton") %>% 
+  ggplot(aes(x = treatment, y = height_cm, colour = treatment)) +
   geom_boxplot(size = 0.5) +
   geom_smooth(method = 'lm') +
   scale_y_continuous(limits =c(0,110)) +
@@ -86,28 +251,20 @@ nanobubbles %>%
     title = "Effect of Bubbles on Plant Height",
     colour = "Treatment") +
   theme(panel.grid = element_blank(), #remove panel lines
-        axis.text.x = element_text(angle = 45, size=10),
+        axis.text.x = element_text(angle = 0, size=10),
         panel.background = element_rect(fill = "white",
                                         colour = "black"))
-
-nanobubbles %>%
-  group_by(datetime, species, treatment)
-  summary(nanobubbles)
 ```
 
+## Conclusions
 
-```
+Bubbles are cool to play with but are they any useful - we will find out. 
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-```{r}
+## References
+Need to find a way to import references from Endnote
 
 
-```
+## Acknowledgements
+Thank you all
+
+
