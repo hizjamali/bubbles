@@ -1,3 +1,4 @@
+# Created by Hiz jamali
 # project started on 08/08/2018 as part of AFDS excercise for data visualization
 # data includes first few measurements from nano bubble glasshouse trial at ACRI
 
@@ -18,6 +19,7 @@ bubbles1 <- as.tibble(bubbles) %>%
 
 bubbles1 %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
+  filter(species=="corn") %>% 
   ggplot(aes(x = datetime, y = height_cm, colour = treatment)) + #as.Date convert date from chr to a factor for geom_smooth 
   geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
   #geom_smooth(method = 'lm') + #to see if slope differs

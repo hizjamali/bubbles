@@ -18,7 +18,7 @@ Lets do some work first
 
 
 
-### Keywords
+#### Keywords
 Nanobubbles, microbubbles, irrigation, cotton, corn, 
 
 
@@ -63,7 +63,7 @@ Statistical analyses was condcuted using R (dreaming) and Python (day dreaming)
 ## Results and Discussion
 Results will be awesome you just have to wait for them. 
 
-```{r echo=FALSE, results= FALSE, warning=FALSE, message=FALSE}
+```{r echo=TRUE, results= FALSE, warning=FALSE, message=FALSE}
 
 library(tidyverse)
 library(ggplot2)
@@ -73,6 +73,7 @@ bubbles <- read_csv(("data/bubbles.csv"))
 bubbles
 bubbles1 <- as.tibble(bubbles) %>% 
   unite(date_pot, datetime, pot, sep = "_", remove = FALSE)
+
 
 # Scatter plot: Effect of bubbles on height
 
@@ -100,7 +101,7 @@ bubbles1 %>%
  
  Plant growth is currently being measured and results will be updated as they arrive.
 
-```{r eval=FALSE, echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+```{r eval=TRUE, echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
 #Effect of bubbles on plant height
 bubbles1 %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
@@ -122,13 +123,13 @@ bubbles1 %>%
 
 ```
 
-```{r echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+```{r echo=TRUE, results=FALSE, warning=FALSE, message=FALSE}
 # Treatment vs height
 bubbles1 %>% 
   #filter(datetime %in% c("30/07/2018")) %>%
   filter(species=="cotton") %>% 
-  ggplot(aes(x = treatment, y = height_cm, colour = datetime)) + # 
-  geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
+  ggplot(aes(x = treatment, y = height_cm, colour = datetime, size = leaves)) + # 
+  geom_jitter(alpha = 0.5, width = 0.3) +
   #geom_smooth(method = 'lm') + #to see if slope differs
   scale_y_continuous(limits =c(0,20)) +
   facet_wrap(~species) +
@@ -144,10 +145,10 @@ bubbles1 %>%
 ```
 
 
-More figures 
+Above figure is showing height of cotton plants in different treatments with point size proportional to number of leaves
 
 
-```{r echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+```{r echo=TRUE, results=FALSE, warning=FALSE, message=FALSE}
 # Height vs number of leaves
 
 bubbles1 %>% 
@@ -155,7 +156,7 @@ bubbles1 %>%
   filter(species=="corn") %>% 
   ggplot(aes(x = leaves, y = height_cm, colour= treatment)) + # 
   geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
-  geom_smooth(method = 'lm') + #to see if slope differs
+  geom_smooth(method = 'lm', se=FALSE) + #to see if slope differs
   scale_y_continuous(limits =c(0,110)) +
   facet_wrap(~species) +
   labs(                                      #labels 
@@ -175,13 +176,13 @@ bubbles1 %>%
 
 
 
-```{r eval= FALSE, echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+```{r eval= TRUE, echo=TRUE, results=FALSE, warning=FALSE, message=FALSE}
 # Treatment vs height
 bubbles1 %>% 
   filter(datetime==("30/07/2018")) %>%
   filter(species=="corn") %>% 
-  ggplot(aes(x = treatment, y = height_cm, colour = datetime)) + # 
-  geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
+  ggplot(aes(x = treatment, y = height_cm, colour = treatment, size = leaves)) + # 
+  geom_jitter(alpha = 0.5, width = 0.3) +
   #geom_smooth(method = 'lm') + #to see if slope differs
   scale_y_continuous(limits =c(50,110)) +
   facet_wrap(~species) +
@@ -202,13 +203,13 @@ bubbles1 %>%
 
 
 
-```{r eval= FALSE, echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+```{r eval= TRUE, echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
 
 # Treatment vs height cotton for last date only
 bubbles1 %>% 
   filter(datetime==("30/07/2018")) %>%
   filter(species=="cotton") %>% 
-  ggplot(aes(x = treatment, y = height_cm, colour = datetime)) + # 
+  ggplot(aes(x = treatment, y = height_cm, colour = treatment)) + # 
   geom_jitter(size = 4, alpha = 0.5, width = 0.3) +
   #geom_smooth(method = 'lm') + #to see if slope differs
   scale_y_continuous(limits =c(0,20)) +
@@ -233,7 +234,7 @@ Use boxplots
 
 
 
-```{r eval= TRUE, echo=FALSE, results=FALSE, warning=FALSE, message=FALSE}
+```{r eval= TRUE, echo=TRUE, results=FALSE, warning=FALSE, message=FALSE}
 
 #Create a boxplot
 bubbles1 %>% 
